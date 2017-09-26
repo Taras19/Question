@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Запитання для форуму</title>
+	<style>
+		.list-action{
+  			list-style: none;
+  			padding: 10px;
+  			margin:20px 0 0;
+  			border: 1px solid black;
+			}
+		.action{
+  			padding: 10px;
+  			border: 1px solid black;
+			}
+		.modal{
+  			display: none;
+  			background-color: gray;
+  			position: relative;
+			}
+		.modal.open{
+  			display: flex;
+  			position: fixed;
+  			top: 0;
+  			left: 0;
+  			height:100vh;
+  			width:100vw;
+  			justify-content: center;
+  			align-items: center;
+			}
+		.close-icon{
+  			position: absolute;
+  			padding: 5px;
+  			top: 15px;
+  			right: 15px;
+  			background-color:white;
+  			border:1px solid black;
+  			border-radius:4px;
+  			font-size:20px;
+  			font-weight:bold;
+  			cursor:pointer;
+			}
+	</style>
+</head>
+<body>
+	<label><input type="time" class="time-action"> Введіть час для події</label>
+
+  <ul class="list-action">
+    <li class="action" data-time="">
+      Якась дія
+    </li>
+  </ul>
+  <div class="modal">
+  
+    <div class="close-icon">&#215;</div>
+  </div>
+  <audio src="I_Love_Rock_'N'_Roll.mp3" preload="auto" ></audio>
+
+  <script>
+  /* передача часу події в data атрибут для події */
+  	var timeAction=document.querySelector(".time-action");
+  	timeAction.addEventListener("input",function(){
+  	var action=document.querySelector(".action");
+  	action.setAttribute("data-time",(timeAction.value.slice(0,2)*60)+(+timeAction.value.slice(3,5)));
+
+  	});
+
+  	/* при показі сторінки запускаємо що 1с функцію яка порівнює поточний час з вказаним в data атрибуті */
+  	window.addEventListener("pageshow",function(){
+  		var timer=setInterval(function(){
+    	var time = new Date();
+    	var timeAction = time.getHours() * 60;
+    	timeAction+=time.getMinutes();
+    	var actionAll=document.querySelectorAll(".action");
+    	for(var i=0;i<actionAll.length;i++){
+    		//console.log(timeAction==actionAll[i].getAttribute("data-time"));
+    		if(timeAction==actionAll[i].getAttribute("data-time")){
+    			document.querySelector(".modal").classList.add("open");
+      		document.querySelector(".modal").appendChild(actionAll[i].cloneNode(true));
+      		document.querySelector("audio").play();
+      		}
+    		}
+  		},60000);
+  
+		});
+  	/* подія для закривання модального вікна,зупинки треку,прослуханий час=0 щоб наступного разу трек починався з початку*/
+
+		var closeIcon=document.querySelector(".close-icon");
+		closeIcon.addEventListener("click",function(){
+  		document.querySelector(".modal").classList.remove("open");
+  		document.querySelector(".modal").removeChild(document.querySelector(".modal").lastElementChild);
+  		document.querySelector("audio").pause();
+  		document.querySelector("audio").currentTime=0;
+		});
+
+  </script>
+</body>
+</html>
