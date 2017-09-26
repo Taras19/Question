@@ -61,38 +61,38 @@
   /* передача часу події в data атрибут для події */
   	var timeAction=document.querySelector(".time-action");
   	timeAction.addEventListener("input",function(){
-  	var action=document.querySelector(".action");
-  	action.setAttribute("data-time",(timeAction.value.slice(0,2)*60)+(+timeAction.value.slice(3,5)));
+  		var action=document.querySelector(".action");
+  		action.setAttribute("data-time",(timeAction.value.slice(0,2)*60)+(+timeAction.value.slice(3,5)));
 
   	});
 
   	/* при показі сторінки запускаємо що 1с функцію яка порівнює поточний час з вказаним в data атрибуті */
   	window.addEventListener("pageshow",function(){
   		var timer=setInterval(function(){
-    	var time = new Date();
-    	var timeAction = time.getHours() * 60;
-    	timeAction+=time.getMinutes();
-    	var actionAll=document.querySelectorAll(".action");
-    	for(var i=0;i<actionAll.length;i++){
-    		//console.log(timeAction==actionAll[i].getAttribute("data-time"));
-    		if(timeAction==actionAll[i].getAttribute("data-time")){
-    			document.querySelector(".modal").classList.add("open");
-      		document.querySelector(".modal").appendChild(actionAll[i].cloneNode(true));
-      		document.querySelector("audio").play();
-      		}
-    		}
+    			var time = new Date();
+    			var timeAction = time.getHours() * 60;
+    			timeAction+=time.getMinutes();
+    			var actionAll=document.querySelectorAll(".action");
+    			for(var i=0;i<actionAll.length;i++){
+    				//console.log(timeAction==actionAll[i].getAttribute("data-time"));
+    				if(timeAction==actionAll[i].getAttribute("data-time")){
+    					document.querySelector(".modal").classList.add("open");
+      					document.querySelector(".modal").appendChild(actionAll[i].cloneNode(true));
+      					document.querySelector("audio").play();
+      				}
+    			}
   		},60000);
   
-		});
+	});
   	/* подія для закривання модального вікна,зупинки треку,прослуханий час=0 щоб наступного разу трек починався з початку*/
 
-		var closeIcon=document.querySelector(".close-icon");
-		closeIcon.addEventListener("click",function(){
+	var closeIcon=document.querySelector(".close-icon");
+	closeIcon.addEventListener("click",function(){
   		document.querySelector(".modal").classList.remove("open");
   		document.querySelector(".modal").removeChild(document.querySelector(".modal").lastElementChild);
   		document.querySelector("audio").pause();
   		document.querySelector("audio").currentTime=0;
-		});
+	});
 
   </script>
 </body>
