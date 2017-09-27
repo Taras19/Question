@@ -57,7 +57,7 @@
   
     <div class="close-icon">&#215;</div>
   </div>
-  <audio src="I_Love_Rock_'N'_Roll.mp3" preload="auto" controls autoplay muted></audio>
+  <audio src="I_Love_Rock_'N'_Roll.mp3" preload="auto" controls  muted></audio>
 
   <script>
   /* передача часу події в data атрибут для події */
@@ -70,8 +70,8 @@
 
   	/* при показі сторінки запускаємо що 1с функцію яка порівнює поточний час з вказаним в data атрибуті */
   	window.addEventListener("pageshow",function(){
-		document.querySelector("audio").volume = 1.0;
-		alert(document.querySelector("audio").volume);
+		//document.querySelector("audio").volume = 1.0;
+		//alert(document.querySelector("audio").volume);
   		var timer=setInterval(function(){
     			var time = new Date();
     			var timeAction = time.getHours() * 60;
@@ -83,7 +83,7 @@
     					document.querySelector(".modal").classList.add("open");
       					document.querySelector(".modal").appendChild(actionAll[i].cloneNode(true));
       					document.querySelector("audio").play();
-					//document.querySelector("audio").volume = 1.0;
+					document.querySelector("audio").volume = 1.0;
       				}
     			}
   		},60000);
