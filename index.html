@@ -57,7 +57,7 @@
   
     <div class="close-icon">&#215;</div>
   </div>
-  <audio src="I_Love_Rock_'N'_Roll.mp3" preload="auto" controls autoplay></audio>
+  <audio src="I_Love_Rock_'N'_Roll.mp3" preload="auto" controls autoplay muted></audio>
 
   <script>
   /* передача часу події в data атрибут для події */
@@ -81,6 +81,7 @@
     					document.querySelector(".modal").classList.add("open");
       					document.querySelector(".modal").appendChild(actionAll[i].cloneNode(true));
       					document.querySelector("audio").play();
+					document.querySelector("audio").volume = 1.0;
       				}
     			}
   		},60000);
