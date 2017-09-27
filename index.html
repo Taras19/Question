@@ -70,6 +70,7 @@
 
   	/* при показі сторінки запускаємо що 1с функцію яка порівнює поточний час з вказаним в data атрибуті */
   	window.addEventListener("pageshow",function(){
+		document.querySelector("audio").volume = 1.0;
   		var timer=setInterval(function(){
     			var time = new Date();
     			var timeAction = time.getHours() * 60;
@@ -81,7 +82,7 @@
     					document.querySelector(".modal").classList.add("open");
       					document.querySelector(".modal").appendChild(actionAll[i].cloneNode(true));
       					document.querySelector("audio").play();
-					document.querySelector("audio").volume = 1.0;
+					//document.querySelector("audio").volume = 1.0;
       				}
     			}
   		},60000);
