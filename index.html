@@ -112,7 +112,8 @@
     					//document.querySelector(".modal").classList.add("open");
       					//document.querySelector(".modal").appendChild(actionAll[i].cloneNode(true));
       					document.querySelector("audio").play();
-					var timer1=window.setTimeout("alert(this.innerHTML)",60000);
+					var actionTitle=actionAll[i].innerHTML;
+					var timer1=window.setTimeout("alert(actionTitle)",10000);
 					document.querySelector(".modal").classList.add("open");
       					document.querySelector(".modal").appendChild(actionAll[i].cloneNode(true));
 					//document.querySelector("audio").volume = 1.0;
