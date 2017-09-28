@@ -108,11 +108,12 @@
     				//console.log(timeAction==actionAll[i].getAttribute("data-time"));
     				if(timeAction==actionAll[i].getAttribute("data-time")){
 					//alert(window.focus());
-    					document.querySelector(".modal").classList.add("open");
-      					document.querySelector(".modal").appendChild(actionAll[i].cloneNode(true));
+    					//document.querySelector(".modal").classList.add("open");
+      					//document.querySelector(".modal").appendChild(actionAll[i].cloneNode(true));
       					document.querySelector("audio").play();
-					var mes=actionAll[i].cloneNode(true);
-					alert(mes);
+					alert("Початок події");
+					document.querySelector(".modal").classList.add("open");
+      					document.querySelector(".modal").appendChild(actionAll[i].cloneNode(true));
 					//document.querySelector("audio").volume = 1.0;
       				}
     			}
