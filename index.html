@@ -107,7 +107,7 @@
     			for(var i=0;i<actionAll.length;i++){
     				//console.log(timeAction==actionAll[i].getAttribute("data-time"));
     				if(timeAction==actionAll[i].getAttribute("data-time")){
-					alert(window.blur());
+					alert(window.focus());
     					document.querySelector(".modal").classList.add("open");
       					document.querySelector(".modal").appendChild(actionAll[i].cloneNode(true));
       					document.querySelector("audio").play();
