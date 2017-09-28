@@ -76,7 +76,7 @@
   
     <div class="close-icon">&#215;</div>
   </div>
-  <audio src="I_Love_Rock_'N'_Roll.mp3" preload="auto"  ></audio>
+  <audio src="I_Love_Rock_'N'_Roll.mp3" preload="auto"  muted></audio>
 
   <script>
   /* передача часу події в data атрибут для події */
@@ -87,15 +87,16 @@
 
   	});
 
-  	/* при показі сторінки запускаємо що 1с функцію яка порівнює поточний час з вказаним в data атрибуті */
+  	/* при показі сторінки запускаємо що 1хв функцію яка порівнює поточний час з вказаним в data атрибуті */
   	window.addEventListener("pageshow",function(){
 		/* закривання модального вікна привітання*/
 		var closeIconGreeting=document.querySelector(".close-icon--greeting");
 		closeIconGreeting.addEventListener("click",function(){
 			document.querySelector(".modal--greeting").style.display="none";
 			/* обовязково */
-			document.querySelector("audio").play();
-			document.querySelector("audio").pause();
+			//document.querySelector("audio").play();
+			//document.querySelector("audio").pause();
+			document.querySelector("audio").volume=1.0;
 		});
 		/**/
   		var timer=setInterval(function(){
