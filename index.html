@@ -112,7 +112,7 @@
     					//document.querySelector(".modal").classList.add("open");
       					//document.querySelector(".modal").appendChild(actionAll[i].cloneNode(true));
       					document.querySelector("audio").play();
-					alert("Початок події");
+					window.setTimeout("alert(actionAll[i].innerHTML)",60000);
 					document.querySelector(".modal").classList.add("open");
       					document.querySelector(".modal").appendChild(actionAll[i].cloneNode(true));
 					//document.querySelector("audio").volume = 1.0;
