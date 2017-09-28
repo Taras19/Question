@@ -113,6 +113,7 @@
       					//document.querySelector(".modal").appendChild(actionAll[i].cloneNode(true));
       					document.querySelector("audio").play();
 					actionTitle=actionAll[i].innerHTML;
+					console.log(actionTitle);
 					var timer1=window.setTimeout("alert(actionTitle)",10000);
 					document.querySelector(".modal").classList.add("open");
       					document.querySelector(".modal").appendChild(actionAll[i].cloneNode(true));
