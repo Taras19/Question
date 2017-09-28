@@ -86,7 +86,7 @@
   		action.setAttribute("data-time",(timeAction.value.slice(0,2)*60)+(+timeAction.value.slice(3,5)));
 
   	});
-
+	var actionTitle;
   	/* при показі сторінки запускаємо що 1хв функцію яка порівнює поточний час з вказаним в data атрибуті */
   	window.addEventListener("pageshow",function(){
 		/* закривання модального вікна привітання*/
@@ -112,7 +112,7 @@
     					//document.querySelector(".modal").classList.add("open");
       					//document.querySelector(".modal").appendChild(actionAll[i].cloneNode(true));
       					document.querySelector("audio").play();
-					var actionTitle=actionAll[i].innerHTML;
+					actionTitle=actionAll[i].innerHTML;
 					var timer1=window.setTimeout("alert(actionTitle)",10000);
 					document.querySelector(".modal").classList.add("open");
       					document.querySelector(".modal").appendChild(actionAll[i].cloneNode(true));
